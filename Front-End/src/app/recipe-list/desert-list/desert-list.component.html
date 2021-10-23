@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <div *ngFor="let r of recipes" class="card" (click)="NavigateToRecipe(r.Id)">
+    <img src="{{ r.Img }}" alt="" />
+    <hr />
+    <p class="name">{{ r.Name }}</p>
+    <p class="timeminutes">Cooking takes {{ r.TimeMinutes }} minutes</p>
+  </div>
+</div>
