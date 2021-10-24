@@ -7,11 +7,26 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SingleRecipeComponent } from './recipe-list/single-recipe/single-recipe.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FoodListComponent } from './recipe-list/food-list/food-list.component';
-import { DesertListComponent } from './recipe-list/desert-list/desert-list.component';
-
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat/';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 @NgModule({
-  declarations: [AppComponent, RecipeListComponent, SingleRecipeComponent, NavbarComponent, FoodListComponent, DesertListComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    RecipeListComponent,
+    SingleRecipeComponent,
+    NavbarComponent,
+    FoodListComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

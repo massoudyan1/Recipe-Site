@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Recipe } from '../../shared/models/recipe.model';
 import { RecipeService } from '../../shared/services/recipe.service';
 
@@ -9,21 +9,20 @@ import { RecipeService } from '../../shared/services/recipe.service';
   styleUrls: ['./food-list.component.scss'],
 })
 export class FoodListComponent implements OnInit {
-  recipe?: Recipe;
-  recipeId = this.activatedRoute.snapshot.paramMap.get('id');
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private recipeService: RecipeService
-  ) {}
+  recipes!: Recipe[];
+  constructor(private recipeService: RecipeService, public router: Router) {}
 
   ngOnInit(): void {
-    this.GetSingleResipe(parseInt(this.recipeId!));
+    this.GetRecipes();
   }
 
-  GetSingleResipe(id: number) {
-    this.recipeService.getSingleRecipe(id).subscribe((data) => {
-      this.recipe = data;
-      console.log(data);
+  GetRecipes() {
+    this.recipeService.getFoodRecipes().subscribe((data) => {
+      this.recipes = data;
     });
+  }
+
+  NavigateToRecipe(recipeId: number) {
+    this.router.navigate([`recipes/${recipeId}`]);
   }
 }

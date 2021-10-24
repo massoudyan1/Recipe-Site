@@ -1,7 +1,7 @@
 <div *ngIf="recipe">
-  <p>Name : {{ recipe?.Name }}</p>
-  <p>Type : {{ recipe?.Type }}</p>
-  <p>Cooking takes {{ recipe?.TimeMinutes }} minutes</p>
+  <p>Name : {{ recipe?.name }}</p>
+  <p>Type : {{ recipe?.type }}</p>
+  <p>Cooking takes {{ recipe?.timeMinutes }} minutes</p>
 </div>
 <div *ngIf="!recipe">
   <p>No recipe found</p>

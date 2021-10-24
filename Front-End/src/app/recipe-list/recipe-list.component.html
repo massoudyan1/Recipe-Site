@@ -1,8 +1,8 @@
 <div class="wrapper">
-  <div *ngFor="let r of recipes" class="card" (click)="NavigateToRecipe(r.Id)">
-    <img src="{{ r.Img }}" alt="" />
+  <div *ngFor="let r of recipes" class="card" (click)="NavigateToRecipe(r.id)">
+    <img src="{{ r.img | json }}" alt="" />
     <hr />
-    <p class="name">{{ r.Name }}</p>
-    <p class="timeminutes">Cooking takes {{ r.TimeMinutes }} minutes</p>
+    <p class="name">{{ r.name | json }}</p>
+    <p class="timeminutes">Cooking takes {{ r.timeMinutes | json }} minutes</p>
   </div>
 </div>
