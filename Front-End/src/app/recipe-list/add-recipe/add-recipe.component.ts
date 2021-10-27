@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Recipe } from 'src/app/shared/models/recipe.model';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
 import { Location } from '@angular/common';
+import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
@@ -23,7 +24,8 @@ export class AddRecipeComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
@@ -43,6 +45,7 @@ export class AddRecipeComponent implements OnInit {
       ingredients: ingredients,
       steps: steps,
       img: img,
+      uid: this.authService.getUserId,
     };
     console.log(data);
 

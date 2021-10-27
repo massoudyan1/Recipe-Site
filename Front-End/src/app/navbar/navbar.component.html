@@ -19,6 +19,7 @@
   </div>
 
   <div
+    *ngIf="authService.isLoggedIn"
     class="route new-recipe"
     routerLink="add-recipe"
     routerLinkActive="active"
@@ -26,5 +27,21 @@
     <p>Add Recipe</p>
     <div class="hr"></div>
   </div>
-  <div class="login">Login</div>
+  <div class="route profile" routerLink="profile/id" routerLinkActive="active">
+    <p>Profile</p>
+    <div class="hr"></div>
+  </div>
+  <div
+    *ngIf="!authService.isLoggedIn"
+    class="route login"
+    routerLink="login"
+    routerLinkActive="active"
+  >
+    <p>Login</p>
+    <div class="hr"></div>
+  </div>
+  <div *ngIf="authService.isLoggedIn" (click)="LogOut()" class="route logout">
+    <p>Logout</p>
+    <div class="hr"></div>
+  </div>
 </div>

@@ -6,4 +6,5 @@ export interface Recipe {
   img: string;
   ingredients: string;
   steps: string;
+  uid?: string;
 }

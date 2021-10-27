@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AddRecipeComponent } from './recipe-list/add-recipe/add-recipe.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateRecipeComponent } from './recipe-list/update-recipe/update-recipe.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { UpdateRecipeComponent } from './recipe-list/update-recipe/update-recipe
     PageNotFoundComponent,
     AddRecipeComponent,
     UpdateRecipeComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

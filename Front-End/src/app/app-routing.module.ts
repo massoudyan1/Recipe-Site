@@ -5,6 +5,7 @@ import { AddRecipeComponent } from './recipe-list/add-recipe/add-recipe.componen
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SingleRecipeComponent } from './recipe-list/single-recipe/single-recipe.component';
 import { UpdateRecipeComponent } from './recipe-list/update-recipe/update-recipe.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'update-recipe/:id',
     component: UpdateRecipeComponent,
+  },
+  {
+    path: 'login',
+    component: SignUpComponent,
   },
   {
     path: '404',
