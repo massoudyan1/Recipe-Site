@@ -4,7 +4,7 @@
   <p class="name">{{ recipe?.name }}</p>
   <br />
   <p class="timeminutes">Cooking takes {{ recipe?.timeMinutes }} minutes</p>
-  <div (click)="Back()" class="back">x</div>
+  <div (click)="Back()" class="back">❌</div>
 </div>
 
 <div *ngIf="!recipe?.name">

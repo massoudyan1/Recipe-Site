@@ -66,4 +66,7 @@ export class UpdateRecipeComponent implements OnInit {
       this.recipe = data;
     });
   }
+  Back() {
+    this.location.back();
+  }
 }

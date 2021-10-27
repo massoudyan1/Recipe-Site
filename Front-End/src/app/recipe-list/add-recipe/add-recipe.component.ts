@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Recipe } from 'src/app/shared/models/recipe.model';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
@@ -20,7 +20,11 @@ export class AddRecipeComponent implements OnInit {
     img: new FormControl(),
   });
 
-  constructor(private recipeService: RecipeService, private router: Router) {}
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {}
   async onSubmit(
@@ -44,5 +48,8 @@ export class AddRecipeComponent implements OnInit {
 
     this.recipeService.addRecipe(data);
     this.router.navigate(['recipes/all']);
+  }
+  Back() {
+    this.location.back();
   }
 }
