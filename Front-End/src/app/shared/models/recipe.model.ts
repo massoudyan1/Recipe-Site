@@ -1,5 +1,5 @@
 export interface Recipe {
-  id: number;
+  resId: string;
   name: string;
   type: string;
   timeMinutes: number;

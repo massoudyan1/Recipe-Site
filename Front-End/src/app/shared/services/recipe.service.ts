@@ -21,24 +21,32 @@ export class RecipeService {
 
   ngOnInit() {}
 
-  getAllRecipes() {
-    let recipesCollection!: AngularFirestoreCollection<Recipe>;
+  getAllRecipes = (): Observable<any[]> =>
+    this.afs.collection('recipes').valueChanges({ idField: 'resId' });
 
-    recipesCollection = this.afs.collection('Recipes', (ref) => {
-      return ref;
-    });
-    console.log(recipesCollection.valueChanges());
-    return recipesCollection.valueChanges();
-    // return of(recipes);
+  // getSingleRecipe(recipeId: number): Observable<Recipe> {
+  //   const r = from(recipes);
+  //   return r.pipe(filter((recipe) => recipe.id === recipeId));
+  // }
+
+  getSingleRecipe = (resId: string): Observable<any> =>
+    this.afs.doc(`recipes/${resId}`).valueChanges({ idField: 'resId' });
+
+  // getFoodRecipes = (): Observable<any[]> =>
+  // this.afs.collection('recipes').valueChanges({ idField: 'resId' }).pipe();
+
+  getRecipesByType = (type: string): Observable<any[]> =>
+    this.afs
+      .collection('recipes', (ref) => ref.where('type', '==', type))
+      .valueChanges({ idField: 'resId' });
+
+  addRecipe(data: Recipe) {
+    this.afs.collection('recipes').add(data);
   }
 
-  getSingleRecipe(recipeId: number): Observable<Recipe> {
-    const r = from(recipes);
-    return r.pipe(filter((recipe) => recipe.id === recipeId));
-  }
-
-  getFoodRecipes = (): Observable<Recipe[]> =>
-    of(recipes).pipe(
-      map((data) => data.filter((data) => data.type === 'food'))
-    );
+  deleteRecipe = (resId: string) => this.afs.doc(`recipes/${resId}`).delete();
+  updateRecipe = (resId: string, data: Recipe) => {
+    console.log('service:  ', resId, '  ', data);
+    this.afs.doc(`recipes/${resId}`).update(data);
+  };
 }

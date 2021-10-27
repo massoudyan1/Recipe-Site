@@ -1,21 +1,45 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FoodListComponent } from './recipe-list/food-list/food-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddRecipeComponent } from './recipe-list/add-recipe/add-recipe.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SingleRecipeComponent } from './recipe-list/single-recipe/single-recipe.component';
+import { UpdateRecipeComponent } from './recipe-list/update-recipe/update-recipe.component';
 
 const routes: Routes = [
   {
-    path: 'recipes',
-    component: RecipeListComponent,
-  },
-  {
-    path: 'recipes/:id',
+    path: 'recipe/:id',
     component: SingleRecipeComponent,
   },
   {
-    path: 'food',
-    component: FoodListComponent,
+    path: 'recipes/:type',
+    component: RecipeListComponent,
+  },
+  {
+    path: 'recipes',
+    redirectTo: 'recipes/all',
+  },
+  {
+    path: 'add-recipe',
+    component: AddRecipeComponent,
+  },
+  {
+    path: 'update-recipe/:id',
+    component: UpdateRecipeComponent,
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'recipes/all',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: 'recipes/all',
+    pathMatch: 'full',
   },
 ];
 

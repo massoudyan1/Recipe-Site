@@ -1,0 +1,73 @@
+.card {
+  width: 70%;
+  height: 90vh;
+  border: grey 4px solid;
+  border-radius: 12px;
+  margin: 20px auto 0 auto;
+
+  outline: 1px solid slategrey;
+  transform: translateZ(0);
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  div:first-of-type{
+    margin-top: 20px;
+  }
+  div{
+    margin: 20px auto 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    label {
+      width: 90%;
+      margin: 0 auto 0 auto;
+      text-align: left;
+      padding-left: 2.5px;
+    }
+    input{
+      margin: 4px auto 0 auto;
+      background-color: lightgray;
+      width: 90%;
+      height: 25px;
+      color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 5px;
+      border-radius: 8px;
+      border: 2px solid gray;
+    }
+    input.steps{
+      height: 30vh;
+    }
+  }
+  .btn-wrapper{
+    background-color: white !important;
+
+    .button{
+      border-radius: 6px;
+      border: 1px solid gray;
+      margin: 0 auto 10px auto;
+      width: 40%;
+      height: 25px;
+      background-color: lightgreen;
+      cursor: pointer;
+    }
+  }
+}

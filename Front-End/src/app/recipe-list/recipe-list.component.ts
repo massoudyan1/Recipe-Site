@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
 import { Recipe } from '../shared/models/recipe.model';
 import { RecipeService } from '../shared/services/recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
@@ -10,19 +11,44 @@ import { RecipeService } from '../shared/services/recipe.service';
 })
 export class RecipeListComponent implements OnInit {
   recipes!: Recipe[];
-  constructor(private recipeService: RecipeService, public router: Router) {}
+  type = this.activatedRoute.snapshot.paramMap.get('type');
+
+  constructor(
+    private recipeService: RecipeService,
+    public router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.GetRecipes();
-  }
+    this.GetRecipes(this.type!);
 
-  GetRecipes() {
-    this.recipeService.getAllRecipes().subscribe((data) => {
-      this.recipes = data;
+    this.router.events.subscribe((event) => {
+      this.type = this.activatedRoute.snapshot.paramMap.get('type');
+      this.GetRecipes(this.type!);
     });
   }
 
-  NavigateToRecipe(recipeId: number) {
-    this.router.navigate([`recipes/${recipeId}`]);
+  GetRecipes(type: string) {
+    if (type == 'all') {
+      this.recipeService
+        .getAllRecipes()
+        .subscribe((data) => (this.recipes = data));
+    } else if (type == 'food' || type == 'dessert') {
+      this.recipeService
+        .getRecipesByType(type)
+        .subscribe((data) => (this.recipes = data));
+    } else {
+      this.router.navigate(['404']);
+    }
+  }
+
+  NavigateToRecipe(recipeId: string) {
+    this.router.navigate([`recipe/${recipeId}`]);
+  }
+  DeleteRecipe(recipeId: string) {
+    this.recipeService.deleteRecipe(recipeId);
+  }
+  UpdateRecipe(recipeId: string) {
+    this.router.navigate([`update-recipe/${recipeId}`]);
   }
 }

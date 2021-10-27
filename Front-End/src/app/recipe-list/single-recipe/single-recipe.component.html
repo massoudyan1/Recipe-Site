@@ -1,8 +1,12 @@
-<div *ngIf="recipe">
-  <p>Name : {{ recipe?.name }}</p>
-  <p>Type : {{ recipe?.type }}</p>
-  <p>Cooking takes {{ recipe?.timeMinutes }} minutes</p>
+<div class="card" *ngIf="recipe?.name">
+  <img src="{{ recipe?.img }}" alt="" />
+  <hr />
+  <p class="name">{{ recipe?.name }}</p>
+  <br />
+  <p class="timeminutes">Cooking takes {{ recipe?.timeMinutes }} minutes</p>
+  <div (click)="Back()" class="back">x</div>
 </div>
-<div *ngIf="!recipe">
+
+<div *ngIf="!recipe?.name">
   <p>No recipe found</p>
 </div>

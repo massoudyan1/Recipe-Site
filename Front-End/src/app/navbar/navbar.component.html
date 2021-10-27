@@ -1,8 +1,30 @@
 <div class="navbar">
-  <div class="home" routerLink="recipes">Home</div>
-  <div class="food-dessert">
-    <div class="food" routerLink="food">Food</div>
-    <div class="dessert" routerLink="dessert">Dessert</div>
+  <div class="route home" routerLink="recipes/all" routerLinkActive="active">
+    <p>Home</p>
+    <div class="hr"></div>
+  </div>
+
+  <div class="route food" routerLink="recipes/food" routerLinkActive="active">
+    <p>Food</p>
+    <div class="hr"></div>
+  </div>
+
+  <div
+    class="route dessert"
+    routerLink="recipes/dessert"
+    routerLinkActive="active"
+  >
+    <p>Dessert</p>
+    <div class="hr"></div>
+  </div>
+
+  <div
+    class="route new-recipe"
+    routerLink="add-recipe"
+    routerLinkActive="active"
+  >
+    <p>Add Recipe</p>
+    <div class="hr"></div>
   </div>
   <div class="login">Login</div>
 </div>

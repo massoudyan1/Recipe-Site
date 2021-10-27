@@ -21,15 +21,43 @@ $nav-hover-color: complement($nav-bg);
   font-size: 18px;
   font-weight: 500;
 
-  .food-dessert {
-    display: flex;
-    flex-direction: row;
+
     .food{
       margin-right: 8px;
     }
     .dessert {
       margin-left: 8px;
     }
-  }
+    .route{
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      .hr{
+        width: 0;
+        height: 2px;
+        opacity: 0;
+        float: left;
+
+        position: relative !important;
+        overflow: hidden;
+        background-color: $nav-hover-color;
+
+        transition: all $nav-transition-time ease-in-out $nav-transition-time/2;
+      }
+      &:hover {
+        .hr{
+          width: 100%;
+          float: left;
+          opacity: 1;
+        }
+      }
+    }
+    .active{
+      border-bottom: solid 2px green;
+      .hr {
+        opacity: 0 !important;
+      }
+    }
+
 
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/shared/models/recipe.model';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-single-recipe',
@@ -11,19 +12,26 @@ import { RecipeService } from 'src/app/shared/services/recipe.service';
 export class SingleRecipeComponent implements OnInit {
   recipe?: Recipe;
   recipeId = this.activatedRoute.snapshot.paramMap.get('id');
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    public router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
-    this.GetSingleResipe(parseInt(this.recipeId!));
+    this.GetRecipe(this.recipeId!);
   }
 
-  GetSingleResipe(id: number) {
-    this.recipeService.getSingleRecipe(id).subscribe((data) => {
+  GetRecipe(resId: string) {
+    this.recipeService.getSingleRecipe(resId).subscribe((data) => {
+      console.log('single res doc:  ', data);
       this.recipe = data;
-      console.log(data);
     });
+  }
+
+  Back() {
+    this.location.back();
   }
 }

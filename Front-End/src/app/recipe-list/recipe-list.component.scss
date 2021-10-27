@@ -4,6 +4,10 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
+  transform: translateZ(0);
+
+
+
   .card {
     height: 500px;
     width: 280px;
@@ -28,10 +32,48 @@
       font-size: larger;
       font-weight: 500;
       font-family:Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      &:hover{
+        font-weight: bold;
+      }
     }
     .timeminutes {
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
     }
+    .edit{
+      position: relative;
+      top: -320px;
+      right: -273px;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      font-weight: bolder;
+      color: lightgray;
+      cursor: pointer;
+      z-index: 20;
+
+      &:hover{
+        color: red;
+      }
+    }
+
+    .delete{
+      position: relative;
+      top: -310px;
+      right: -273px;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      font-weight: bolder;
+      color: lightgray;
+      cursor: pointer;
+      z-index: 20;
+
+      &:hover{
+        color: red;
+      }
+    }
+
   }
 }

@@ -1,0 +1,90 @@
+<div class="card">
+  <form
+    [formGroup]="addRecipeForm"
+    (ngSubmit)="
+      onSubmit(
+        name.value,
+        type.value,
+        timeMinutes.value,
+        ingredients.value,
+        steps.value,
+        img.value
+      )
+    "
+  >
+    <div>
+      <label for="name">name</label>
+      <input
+        type="text"
+        formControlName="name"
+        #name
+        required
+        minlength="1"
+        value="{{ this.recipe?.name }}"
+      />
+    </div>
+
+    <div>
+      <label for="type">type</label>
+      <input
+        type="text"
+        formControlName="type"
+        #type
+        required
+        minlength="1"
+        value="{{ this.recipe?.type }}"
+      />
+    </div>
+
+    <div>
+      <label for="timeMinutes">timeMinutes</label>
+      <input
+        type="number"
+        formControlName="timeMinutes"
+        #timeMinutes
+        required
+        minlength="1"
+        value="{{ this.recipe?.timeMinutes }}"
+      />
+    </div>
+
+    <div>
+      <label for="ingredients">ingredients</label>
+      <input
+        type="text"
+        formControlName="ingredients"
+        #ingredients
+        [required]="true"
+        minlength="1"
+        value="{{ this.recipe?.ingredients }}"
+      />
+    </div>
+
+    <div>
+      <label for="steps">steps</label>
+      <input
+        class="steps"
+        type="text"
+        formControlName="steps"
+        #steps
+        required
+        minlength="1"
+        value="{{ this.recipe?.steps }}"
+      />
+    </div>
+
+    <div>
+      <label for="img">img</label>
+      <input
+        type="text"
+        formControlName="img"
+        #img
+        minlength="1"
+        value="{{ this.recipe?.img }}"
+      />
+    </div>
+    <div class="btn-wrapper">
+      <button type="submit" class="button">Update Recipe</button>
+    </div>
+  </form>
+</div>

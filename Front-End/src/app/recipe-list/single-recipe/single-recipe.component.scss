@@ -1,0 +1,47 @@
+
+  .card {
+    width: 70%;
+    height: 90vh;
+    border: grey 4px solid;
+    border-radius: 12px;
+    margin: 20px auto 0 auto;
+
+    outline: 1px solid slategrey;
+    transform: translateZ(0);
+
+    hr {
+      margin-top: -0px;
+    }
+    img {
+      width: 100% !important;
+      height: 40% !important;
+      box-sizing: border-box;
+      border-radius: 12px;
+      padding: 2px 1px 1px 1px;
+      object-fit: scale-down;
+    }
+    .name {
+      text-align: center;
+      margin-top: 0px;
+      text-transform:capitalize;
+      font-size: larger;
+      font-weight: 500;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    .timeminutes {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .back{
+      color: red;
+      font-weight: bolder;
+      font-size: 70px;
+      font-family: Arial, Helvetica, sans-serif;
+
+      position:fixed;
+      top: -15px;
+      right: 5px;
+
+      cursor: pointer;
+    }
+  }
