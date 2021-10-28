@@ -21,7 +21,24 @@ $nav-hover-color: complement($nav-bg);
   font-size: 18px;
   font-weight: 500;
 
-
+    .own, .all{
+      .own-child, .all-child{
+        display: none;
+      }
+      &:hover{
+        .own-title, .all-title {
+          display: none;
+        }
+        .own-child, .all-child{
+          display: inline;
+          display: flex;
+          flex-direction: column;
+          .div{
+            margin: 0 auto;
+          }
+        }
+      }
+    }
     .food{
       margin-right: 8px;
     }

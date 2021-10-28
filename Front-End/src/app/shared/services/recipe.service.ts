@@ -40,6 +40,15 @@ export class RecipeService {
       .collection('recipes', (ref) => ref.where('type', '==', type))
       .valueChanges({ idField: 'resId' });
 
+  getOwnRecipesByType = (type: string, uid: string): Observable<any[]> => {
+    return this.afs
+      .collection('recipes', (ref) =>
+        ref.where('type', '==', type).where('uid', '==', uid)
+      )
+
+      .valueChanges({ idField: 'resId' });
+  };
+
   addRecipe(data: Recipe) {
     this.afs.collection('recipes').add(data);
   }

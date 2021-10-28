@@ -3,8 +3,52 @@
     <p>Home</p>
     <div class="hr"></div>
   </div>
+  <div class="all">
+    <p class="all-title">All</p>
+    <div class="all-child">
+      <div
+        class="route food"
+        routerLink="recipes/food"
+        routerLinkActive="active"
+      >
+        <p>Food</p>
+        <div class="hr"></div>
+      </div>
 
-  <div class="route food" routerLink="recipes/food" routerLinkActive="active">
+      <div
+        class="route dessert"
+        routerLink="recipes/dessert"
+        routerLinkActive="active"
+      >
+        <p>Dessert</p>
+        <div class="hr"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="own">
+    <p class="own-title">Own</p>
+    <div class="own-child">
+      <div
+        class="route food"
+        routerLink="own/recipes/food"
+        routerLinkActive="active"
+      >
+        <p>Food</p>
+        <div class="hr"></div>
+      </div>
+
+      <div
+        class="route dessert"
+        routerLink="own/recipes/dessert"
+        routerLinkActive="active"
+      >
+        <p>Dessert</p>
+        <div class="hr"></div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="route food" routerLink="recipes/food" routerLinkActive="active">
     <p>Food</p>
     <div class="hr"></div>
   </div>
@@ -16,7 +60,7 @@
   >
     <p>Dessert</p>
     <div class="hr"></div>
-  </div>
+  </div> -->
 
   <div
     *ngIf="authService.isLoggedIn"

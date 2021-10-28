@@ -17,6 +17,10 @@ const routes: Routes = [
     component: RecipeListComponent,
   },
   {
+    path: 'own/recipes/:type',
+    component: RecipeListComponent,
+  },
+  {
     path: 'recipes',
     redirectTo: 'recipes/all',
   },

@@ -5,6 +5,16 @@
     <p class="name" (click)="NavigateToRecipe(r.resId)">{{ r.name }}</p>
     <br />
     <p class="timeminutes">Cooking takes {{ r.timeMinutes }} minutes</p>
+
+    <div class="ingredients">
+      <p><b>Ingredients:</b></p>
+      <p>{{ r.ingredients.substring(0, 30) }}&nbsp;<b>.&nbsp;.&nbsp;.</b></p>
+    </div>
+    <div class="steps">
+      <p><b>Steps:</b></p>
+      <p>{{ r.steps.substring(0, 95) }}&nbsp;<b>.&nbsp;.&nbsp;.</b></p>
+    </div>
+
     <div
       *ngIf="authService.isLoggedIn && r.uid == authService.getUserId"
       class="edit"

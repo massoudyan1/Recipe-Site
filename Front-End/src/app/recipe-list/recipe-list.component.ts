@@ -1,8 +1,7 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { Recipe } from '../shared/models/recipe.model';
 import { RecipeService } from '../shared/services/recipe.service';
-import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -13,12 +12,14 @@ import { AuthService } from '../shared/services/auth.service';
 export class RecipeListComponent implements OnInit {
   recipes!: Recipe[];
   type = this.activatedRoute.snapshot.paramMap.get('type');
+  own = this.activatedRoute.snapshot.paramMap.get('own');
 
   constructor(
     private recipeService: RecipeService,
     public router: Router,
     private activatedRoute: ActivatedRoute,
-    public authService: AuthService
+    public authService: AuthService,
+    private activeRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -31,25 +32,33 @@ export class RecipeListComponent implements OnInit {
   }
 
   GetRecipes(type: string) {
-    if (type == 'all') {
+    if (!this.router.url.includes('own')) {
+      if (type == 'all') {
+        this.recipeService
+          .getAllRecipes()
+          .subscribe((data) => (this.recipes = data));
+      } else if (type == 'food' || type == 'dessert') {
+        this.recipeService
+          .getRecipesByType(type)
+          .subscribe((data) => (this.recipes = data));
+      } else {
+        this.router.navigate(['404']);
+      }
+    } else if (this.router.url.includes('own')) {
       this.recipeService
-        .getAllRecipes()
+        .getOwnRecipesByType(type, this.authService.getUserId)
         .subscribe((data) => (this.recipes = data));
-    } else if (type == 'food' || type == 'dessert') {
-      this.recipeService
-        .getRecipesByType(type)
-        .subscribe((data) => (this.recipes = data));
-    } else {
-      this.router.navigate(['404']);
     }
   }
 
   NavigateToRecipe(recipeId: string) {
     this.router.navigate([`recipe/${recipeId}`]);
   }
+
   DeleteRecipe(recipeId: string) {
     this.recipeService.deleteRecipe(recipeId);
   }
+
   UpdateRecipe(recipeId: string) {
     this.router.navigate([`update-recipe/${recipeId}`]);
   }
