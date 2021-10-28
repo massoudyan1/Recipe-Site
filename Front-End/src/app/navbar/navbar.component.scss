@@ -59,7 +59,7 @@ $nav-hover-color: complement($nav-bg);
         overflow: hidden;
         background-color: $nav-hover-color;
 
-        transition: all $nav-transition-time ease-in-out $nav-transition-time/2;
+        transition: all $nav-transition-time ease-in-out;
       }
       &:hover {
         .hr{
