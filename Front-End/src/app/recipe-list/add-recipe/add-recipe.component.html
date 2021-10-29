@@ -39,7 +39,6 @@
         type="text"
         formControlName="ingredients"
         #ingredients
-        [required]="true"
         minlength="1"
       />
     </div>
@@ -61,7 +60,9 @@
       <input type="text" formControlName="img" #img minlength="1" />
     </div>
     <div class="btn-wrapper">
-      <button type="submit" class="button">Add Recipe</button>
+      <button [disabled]="!addRecipeForm.valid" type="submit" class="button">
+        Add Recipe
+      </button>
     </div>
   </form>
   <div (click)="Back()" class="back">❌</div>

@@ -1,0 +1,55 @@
+.card {
+  padding: 15px;
+  width: 70%;
+  height: 40vh;
+  min-height: 300px;
+  border: grey 4px solid;
+  border-radius: 12px;
+  margin: 60px auto 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  div {
+    flex: 4;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  p {
+    margin: 0px 15px 0 15px;
+  }
+  input {
+    margin: 0 auto;
+    width: 50%;
+    border: 1px solid slategrey;
+    cursor: pointer;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  p, input {
+    margin: 1px;
+    flex: 2;
+  }
+  .submit {
+    flex: 2;
+    margin: 0 auto;
+    min-width: 70px;
+    width: 30%;
+    background-color: hsl(195deg 95% 64%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+
+    }
+    }
+  .already {
+    margin-top: 10px;
+    margin-bottom: -10px;
+  }
+}

@@ -1,3 +1,22 @@
+<form action="" class="card signup">
+  <div class="email">
+    <p class="title">Email</p>
+    <input type="text" #email />
+  </div>
+  <div class="password">
+    <p class="title">Password</p>
+    <input type="password" #password />
+  </div>
+  <div class="repeat-password password">
+    <p class="title">Repeat Password</p>
+    <input type="password" #repeatPassword />
+  </div>
+  <div class="submit">
+    <p>Submit</p>
+  </div>
+  <p class="already">Already have an account? <span>Log In</span> instead.</p>
+</form>
+
 <div>
   <div>
     <div>
@@ -12,19 +31,13 @@
       </div>
 
       <div>
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Sign Up"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)"
-        />
+        <input (click)="authService.SignUp(userEmail.value, userPwd.value)" />
       </div>
 
       <div>
-        <span class="or"><span class="orInner">Or</span></span>
+        <span><span class="orInner">Or</span></span>
       </div>
 
-      <!-- Continue with Google -->
       <div>
         <button type="button" (click)="authService.GoogleAuth()">
           Continue with Google
