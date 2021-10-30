@@ -13,78 +13,70 @@
     "
   >
     <div>
-      <label for="name">name</label>
+      <label for="name">Name of the Recipe</label>
       <input
+        value="{{ recipe?.name }}"
         type="text"
         formControlName="name"
         #name
         required
-        minlength="1"
-        value="{{ this.recipe?.name }}"
       />
     </div>
 
     <div>
-      <label for="type">type</label>
-      <input
-        type="text"
+      <label class="select-label" for="type">The Type of Recipe</label>
+      <select
+        value="{{ recipe?.type }}"
+        class="type-select type"
+        name="type"
         formControlName="type"
         #type
-        required
-        minlength="1"
-        value="{{ this.recipe?.type }}"
-      />
+      >
+        <option value="none" disabled hidden>Choose Type</option>
+        <option value="food">Food</option>
+        <option value="dessert">Dessert</option>
+      </select>
     </div>
 
     <div>
-      <label for="timeMinutes">timeMinutes</label>
+      <label for="timeMinutes">Time in Minutes to Prepare the Recipe</label>
       <input
+        value="{{ recipe?.timeMinutes }}"
         type="number"
         formControlName="timeMinutes"
         #timeMinutes
-        required
-        minlength="1"
-        value="{{ this.recipe?.timeMinutes }}"
       />
     </div>
 
     <div>
-      <label for="ingredients">ingredients</label>
+      <label for="ingredients">All ingredients used in recipe</label>
       <input
+        value="{{ recipe?.ingredients }}"
         type="text"
         formControlName="ingredients"
         #ingredients
-        [required]="true"
-        minlength="1"
-        value="{{ this.recipe?.ingredients }}"
       />
     </div>
 
     <div>
-      <label for="steps">steps</label>
+      <label for="steps">Procedure to Prepare Recipe</label>
       <input
+        value="{{ recipe?.steps }}"
         class="steps"
         type="text"
         formControlName="steps"
         #steps
-        required
-        minlength="1"
-        value="{{ this.recipe?.steps }}"
       />
     </div>
 
     <div>
-      <label for="img">img</label>
-      <input
-        type="text"
-        formControlName="img"
-        #img
-        minlength="1"
-        value="{{ this.recipe?.img }}"
-      />
+      <label for="img">Image of Recipe ( URL )</label>
+      <input value="{{ recipe?.img }}" type="text" formControlName="img" #img />
     </div>
     <div class="btn-wrapper">
-      <button type="submit" class="button">Update Recipe</button>
+      <button [disabled]="!addRecipeForm.valid" type="submit" class="button">
+        Add Recipe
+      </button>
     </div>
   </form>
   <div (click)="Back()" class="back">❌</div>

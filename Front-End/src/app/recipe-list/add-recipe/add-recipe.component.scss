@@ -56,6 +56,24 @@
     input.steps{
       height: 30vh;
     }
+    .select-label {
+      text-align: center;
+    }
+    select{
+      margin: 4px auto 0 auto;
+      background-color: lightgray;
+      width: 30%;
+      height: 50px;
+      color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 5px;
+      border-radius: 8px;
+      border: 2px solid gray;
+
+      option{
+        text-align: center;
+      }
+    }
   }
   .btn-wrapper{
     background-color: white !important;

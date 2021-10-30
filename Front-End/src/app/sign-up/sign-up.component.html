@@ -11,45 +11,14 @@
     <p class="title">Repeat Password</p>
     <input type="password" #repeatPassword />
   </div>
-  <div class="submit">
-    <p>Submit</p>
+
+  <div class="buttons">
+    <button class="submit">Submit</button>
+    <p>or</p>
+    <button class="submit" type="button" (click)="authService.GoogleAuth()">
+      Continue with Google
+    </button>
   </div>
+
   <p class="already">Already have an account? <span>Log In</span> instead.</p>
 </form>
-
-<div>
-  <div>
-    <div>
-      <h3>Sign Up</h3>
-
-      <div>
-        <input type="email" placeholder="Email Address" #userEmail required />
-      </div>
-
-      <div>
-        <input type="password" placeholder="Password" #userPwd required />
-      </div>
-
-      <div>
-        <input (click)="authService.SignUp(userEmail.value, userPwd.value)" />
-      </div>
-
-      <div>
-        <span><span class="orInner">Or</span></span>
-      </div>
-
-      <div>
-        <button type="button" (click)="authService.GoogleAuth()">
-          Continue with Google
-        </button>
-      </div>
-    </div>
-
-    <div>
-      <span
-        >Already have an account?
-        <span routerLink="/sign-in">Log In</span></span
-      >
-    </div>
-  </div>
-</div>

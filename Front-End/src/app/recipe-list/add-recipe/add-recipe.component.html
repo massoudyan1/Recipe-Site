@@ -13,51 +13,57 @@
     "
   >
     <div>
-      <label for="name">name</label>
-      <input type="text" formControlName="name" #name required minlength="1" />
+      <label for="name">Name of the Recipe</label>
+      <input type="text" formControlName="name" #name required maxlength="30" />
     </div>
 
     <div>
-      <label for="type">type</label>
-      <input type="text" formControlName="type" #type required minlength="1" />
+      <label class="select-label" for="type">The Type of Recipe</label>
+      <select
+        class="type-select type"
+        name="type"
+        formControlName="type"
+        #type
+        required
+      >
+        <option value="none" [defaultSelected]="true" disabled hidden>
+          Choose Type
+        </option>
+        <option value="food">Food</option>
+        <option value="dessert">Dessert</option>
+      </select>
     </div>
 
     <div>
-      <label for="timeMinutes">timeMinutes</label>
+      <label for="timeMinutes">Time in Minutes to Prepare the Recipe</label>
       <input
         type="number"
         formControlName="timeMinutes"
         #timeMinutes
         required
-        minlength="1"
       />
     </div>
 
     <div>
-      <label for="ingredients">ingredients</label>
-      <input
-        type="text"
-        formControlName="ingredients"
-        #ingredients
-        minlength="1"
-      />
+      <label for="ingredients">All ingredients used in recipe</label>
+      <input type="text" formControlName="ingredients" #ingredients required />
     </div>
 
     <div>
-      <label for="steps">steps</label>
+      <label for="steps">Procedure to Prepare Recipe</label>
       <input
         class="steps"
         type="text"
         formControlName="steps"
         #steps
         required
-        minlength="1"
+        maxlength="4800"
       />
     </div>
 
     <div>
-      <label for="img">img</label>
-      <input type="text" formControlName="img" #img minlength="1" />
+      <label for="img">Image of Recipe ( URL )</label>
+      <input type="text" formControlName="img" #img maxlength="300" required />
     </div>
     <div class="btn-wrapper">
       <button [disabled]="!addRecipeForm.valid" type="submit" class="button">

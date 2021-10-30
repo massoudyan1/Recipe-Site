@@ -52,7 +52,6 @@ export class UpdateRecipeComponent implements OnInit {
       steps: steps,
       img: img,
     };
-    console.log(data);
 
     if (this.recipeId) {
       this.recipeService.updateRecipe(this.recipeId, data);
@@ -62,7 +61,6 @@ export class UpdateRecipeComponent implements OnInit {
 
   GetRecipe(resId: string) {
     this.recipeService.getSingleRecipe(resId).subscribe((data) => {
-      console.log('single res doc:  ', data);
       this.recipe = data;
     });
   }

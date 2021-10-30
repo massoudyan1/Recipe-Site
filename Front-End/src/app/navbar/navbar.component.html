@@ -71,7 +71,12 @@
     <p>Add Recipe</p>
     <div class="hr"></div>
   </div>
-  <div class="route profile" routerLink="profile/id" routerLinkActive="active">
+  <div
+    class="route profile"
+    routerLink="profile/id"
+    routerLinkActive="active"
+    *ngIf="authService.isLoggedIn"
+  >
     <p>Profile</p>
     <div class="hr"></div>
   </div>
