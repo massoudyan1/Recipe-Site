@@ -1,6 +1,6 @@
 # Site for Sharing Recipes
 
-Simple overview of use/purpose.
+Share your favorite recipes with the world !
 
 ## Live Link
 
