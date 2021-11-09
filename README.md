@@ -20,5 +20,5 @@ https://the-tasty-bible.web.app/recipes/all
 npm install
 ```
 ```
-ng server
+ng serve
 ```
