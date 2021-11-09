@@ -10,7 +10,7 @@ https://the-tasty-bible.web.app/recipes/all
 ### Dependencies
 
 * Angular 12
-* Native SCSS 
+* SCSS 
 * RxJS
 * Angular Routing
 * Angular Fire
