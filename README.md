@@ -14,6 +14,8 @@ https://the-tasty-bible.web.app/recipes/all
 * RxJS
 * Angular Routing
 * Angular Fire
+* Firebase
+* Github Action
 
 ### Install & Run
 ```
