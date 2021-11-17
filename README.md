@@ -1,4 +1,4 @@
-# Site for Sharing Recipes
+# Site for Sharing Recipes - In Progress
 
 Share your favorite recipes with the world !
 
