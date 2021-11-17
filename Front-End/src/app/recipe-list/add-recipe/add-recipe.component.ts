@@ -46,6 +46,8 @@ export class AddRecipeComponent implements OnInit {
       steps: steps,
       img: img,
       uid: this.authService.getUserId,
+      displayName: this.authService.getUserDisplayName,
+      authorPhotoURL: this.authService.getUserPhotoURL,
     };
     console.log(data);
 

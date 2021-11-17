@@ -7,4 +7,6 @@ export interface Recipe {
   ingredients: string;
   steps: string;
   uid?: string;
+  displayName?: string;
+  authorPhotoURL?: string;
 }

@@ -8,6 +8,7 @@ import {
 } from '@angular/fire/compat/firestore';
 
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -90,6 +91,13 @@ export class AuthService {
   get getUserId(): string {
     return this.userData.uid;
   }
+  get getUserDisplayName(): string {
+    return this.userData.displayName;
+  }
+  get getUserPhotoURL(): string {
+    return this.userData.photoURL;
+  }
+
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider());

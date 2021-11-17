@@ -14,6 +14,8 @@ export class RecipeListComponent implements OnInit {
   type = this.activatedRoute.snapshot.paramMap.get('type');
   own = this.activatedRoute.snapshot.paramMap.get('own');
 
+  imgPlaceholder =
+    'https://p.kindpng.com/picc/s/79-798754_hoteles-y-centros-vacacionales-dish-placeholder-hd-png.png';
   constructor(
     private recipeService: RecipeService,
     public router: Router,

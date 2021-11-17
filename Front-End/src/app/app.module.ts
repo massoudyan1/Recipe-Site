@@ -15,6 +15,14 @@ import { AddRecipeComponent } from './recipe-list/add-recipe/add-recipe.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateRecipeComponent } from './recipe-list/update-recipe/update-recipe.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +42,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

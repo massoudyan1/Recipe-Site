@@ -59,6 +59,10 @@ export class UpdateRecipeComponent implements OnInit {
     }
   }
 
+  DeleteRecipe(recipeId: string) {
+    this.recipeService.deleteRecipe(recipeId);
+  }
+
   GetRecipe(resId: string) {
     this.recipeService.getSingleRecipe(resId).subscribe((data) => {
       this.recipe = data;

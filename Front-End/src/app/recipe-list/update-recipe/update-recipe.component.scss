@@ -77,7 +77,9 @@
   }
   .btn-wrapper{
     background-color: white !important;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     .button{
       border-radius: 6px;
       border: 1px solid gray;

@@ -77,6 +77,9 @@
       <button [disabled]="!addRecipeForm.valid" type="submit" class="button">
         Add Recipe
       </button>
+      <button (click)="DeleteRecipe(recipe!.resId)" class="button">
+        Delete Recipe
+      </button>
     </div>
   </form>
   <div (click)="Back()" class="back">❌</div>
