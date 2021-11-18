@@ -13,9 +13,13 @@
   </div>
 
   <div class="buttons">
-    <button class="submit">Submit</button>
+    <button class="submit submit-email">Submit</button>
     <p>or</p>
-    <button class="submit" type="button" (click)="authService.GoogleAuth()">
+    <button
+      class="submit submit-google"
+      type="button"
+      (click)="authService.GoogleAuth()"
+    >
       Continue with Google
     </button>
   </div>

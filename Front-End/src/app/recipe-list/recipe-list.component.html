@@ -53,12 +53,14 @@
       <p>{{ r.steps.slice(0, 100) }}</p>
     </div>
     <div class="flex flex5">
-      <div><span>View</span></div>
+      <div class="button view-button" (click)="NavigateToRecipe(r.resId)">
+        <span>View</span>
+      </div>
       <div
         *ngIf="authService.isLoggedIn && r.uid == authService.getUserId"
         (click)="UpdateRecipe(r.resId)"
       >
-        <span>Edit</span>
+        <span class="button eddit-button">Edit</span>
       </div>
     </div>
   </div>
