@@ -4,7 +4,7 @@ $nav-bg: #4bcffa;
 $nav-bg-mobile: #55efc4;
 $nav-bg-hamburger: white;
 $nav-transition-time: 0.3s;
-$nav-primary-color: white;
+$nav-primary-color: black;
 $nav-hover-color: complement($nav-bg);
 
 .navbar {
@@ -29,52 +29,26 @@ $nav-hover-color: complement($nav-bg);
         .own-title, .all-title {
           display: none;
         }
-        .own-child, .all-child{
-          display: inline;
-          display: flex;
-          flex-direction: column;
-          .div{
-            margin: 0 auto;
-          }
-        }
       }
     }
-    .food{
-      margin-right: 8px;
-    }
-    .dessert {
-      margin-left: 8px;
-    }
-    .route{
+    a {
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      .hr{
-        width: 0;
-        height: 2px;
-        opacity: 0;
-        float: left;
+    }
+    .router-link-active {
+      font-weight: 700;
+      color: white;
+    }
 
-        position: relative !important;
-        overflow: hidden;
-        background-color: $nav-hover-color;
 
-        transition: all $nav-transition-time ease-in-out;
-      }
+    & > * {
+      all: unset;
+      cursor: pointer; 
+      margin: 5px;
+      padding: 5px;
       &:hover {
-        .hr{
-          width: 100%;
-          float: left;
-          opacity: 1;
-        }
-      }
+        background-color: $nav-hover-color;
+       }
     }
-    .active{
-      border-bottom: solid 2px green;
-      .hr {
-        opacity: 0 !important;
-      }
-    }
-
-
 }
